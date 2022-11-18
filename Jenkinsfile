@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage ('Init') {
+    stage ('Build') {
       steps {
         sh "mvn clean package"
       }
@@ -12,14 +12,10 @@ pipeline {
         }
       }
     }
-    stage ('Build') {
+    stage ('Deploy to staging') {
       steps {
-        echo "Build step..."
-      }
-    }
-    stage ('Deploy') {
-      steps {
-        echo "Deploy step..."
+        echo "Deploy to staging..."
+        build job:'deploy_to_staging'
       }
     }
   }
