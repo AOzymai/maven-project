@@ -1,17 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage ('Initialize') {
+    stage ('Init') {
       steps {
-       s ```
-         echo "PATH = ${PATH}"
-         echo "JAVA_HOME = ${JAVA_HOME}"
-       ```
+        echo "Init step..."
       }
     }
     stage ('Build') {
       steps {
-        echo "Hello, Jenkins!"
+        echo "Build step..."
+      }
+    }
+    stage ('Deploy') {
+      steps {
+        echo "Deploy step..."
       }
     }
   }
